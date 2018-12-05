@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>命名空间</title>
+</head>
+<body>
+	<script type="text/javascript">
+		console.log(window);
+		/*
+		window 是一个大空间，给它添加aaa,bbb,ccc,ddd属性
+		 */
+		//直接添加在window对象上，太麻烦，不易于管理
+		// window.aaa=111;
+		// window.bbb=222;
+		// window.ccc=333;
+		
+
+   //在window下面添加一个命名空间，customAttr
+		window.customAttr={
+			aaa:111,
+			bbb:222,
+			ccc:333,
+			ddd:444
+		}
+		console.log(window.customAttr);
+
+		//通过命名空间，获得相应的值
+		//此时，window下多了customAttr这个属性
+	
+	   console.log(window.customAttr.aaa);
+	   console.log(window.customAttr.bbb);
+       console.log(window.customAttr.ccc);
+       console.log(window.customAttr.ddd);
+
+	   //命名空间2
+	   
+	     //这种思路好处，保护命名空间
+	     //坏处，名字太长
+	   var xx={};
+	   xx.objVal={
+	   	a:1,
+	   	b:2,
+	   	c:3
+	   }
+	   console.log(xx);
+
+
+	    //命名空间3
+	   //这种命名空间，每天都在用
+	   var xx={
+	   	a:1
+	   }
+
+	   //xx对象中属性a,就是一个命名空间
+	   //它的键可以是另一个对象，如下
+	   
+       var xx2={
+       	a:{
+       		a:1
+       	},
+       	b:2
+       }
+       console.log(xx2);
+
+       //所谓的命名空间就是属性名，不会重名
+	</script>
+</body>
+</html>

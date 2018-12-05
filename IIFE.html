@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匿名自执行函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		(function(_n){
+			console.log(_n.fns);
+			for(var i in _n.fns){
+				_n.fns[i]();
+			}
+
+		})({
+			fns:[fnxx,fnxx2,fnxx3]
+		});
+
+
+   //更多时候业务代码放在其它地方，只是把IIFE当做一个执行场所
+		function fnxx(){
+			console.log("fnxx  111");
+		}
+
+		function fnxx2(){
+			console.log("fnxx  222");
+		}
+
+		function fnxx3(){
+			console.log("fnxx  333");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匿名自执行函数2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		  匿名自执行函数,标准套路格式
+		 */
+		window.abc={};
+		(function(win){
+			var _win=win;
+			_win.a1=123;
+
+		})(window.abc);
+
+		//所有的变量都在window.abc之下
+		console.log(window.abc);
+		//a1并没有直接挂载在window上
+		console.log(window.a1);
+
+		/*这样写好处就是，在IIFE中所有的操作的变量，
+		  都是在window.abc这个命名空间之中，也就是说 ， 
+		   window只有一个abc这个自定义属性
+		  不会出现window被挂载了一堆自定义变量的情况，易于管理、维护
+		 */
+	</script>
+</body>
+</html>
